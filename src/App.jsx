@@ -5,7 +5,7 @@ import './App.css';
 
 
 
-import {useState} from "react"
+import React, {useState, useRef} from "react"
 
 import waveform from "./waveform.mp4"
 
@@ -15,14 +15,19 @@ import spotify from "./spotify.svg"
 import pause from "./pause-solid.svg"
 
 function App({param}) {
+  const [isPlaying, setIsPlaying] = useState(true)
   const [displayOthers, setDisplayOthers] = useState(false)
-  
+  const vidRef = useRef(null);
+  const handlePlayVideo = () => {
+    vidRef.current.play();
+    setIsPlaying(true)
+  }
 
 
   return (
     <div className="App">
 
-        <div className="container mt-5 pt-5">
+        <div className="container mt-2 pt-5 pb-5">
         <img src={logo} className="cover" alt="COVER GHOSTRAISE" />
 
 
@@ -35,8 +40,9 @@ function App({param}) {
           </div>
           
           <div className="container mt-4">
-          <video src={waveform} className="soundwave mt-3 video " controls loop/>
-          <div className="container btn-ctn mt-0 pt-0">
+
+         
+          <div className="container btn-ctn mt-0 mb-2 pt-0">
             <div className="columns is-flex links mt-0 pt-0  pb-0 mb-0">
               <div className="column is-half mb-0 pb-0">
                             <a className="button mt-5 btn-links">
@@ -80,11 +86,45 @@ function App({param}) {
                </div>
 
           </div>
+          <Video isPlaying={isPlaying} setIsPlaying={setIsPlaying}/>
           </div>
          
         </div>
     </div>
   );
 }
+
+export const Video = () => {
+  const videoRef = useRef();
+  const [stop, setStop] = useState(false);
+
+  const handleVideo = () => {
+      setStop(!stop);
+      if (stop === true) {
+          videoRef.current.pause();
+      } else {
+          videoRef.current.play();
+      }
+  };
+
+  return (
+      <div onClick={handleVideo}>
+           <video
+        ref={videoRef}
+        src={waveform}
+        type="video/mp4"
+        className="soundwave mt-3 video "
+      />
+      {!stop ? <svg xmlns="http://www.w3.org/2000/svg" onClick={() => videoRef.current.play()} className="icon pause mt-1" viewBox="0 0 512 512"><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/></svg> :      <svg xmlns="http://www.w3.org/2000/svg" onClick={() => videoRef.current.pause()} className="icon pause mt-1" viewBox="0 0 320 512"><path d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"/></svg>
+ }
+        
+      </div>
+       
+      
+    
+  );
+};
+
+
 
 export default App;

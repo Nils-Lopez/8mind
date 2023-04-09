@@ -2,7 +2,6 @@
   text-align: center;
   
   height: 100%;
-  overflow:auto;
 }
 
  @import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
@@ -17,6 +16,7 @@ html {
   background-attachment: fixed;
   overflow: hidden;
   font-family: "Share Tech", sans-serif;
+  
 }
 
 .soundwave {
@@ -30,7 +30,7 @@ html {
   max-width: 22px;
   margin-bottom: 0px;
   fill: white;
-  
+  cursor: pointer;
 }
 .icon:hover {
   fill:grey;
@@ -41,12 +41,37 @@ html {
 }
 
 .pause {
-  width: 25px;
-  position: absolute;
+  min-width: 45px;
+  position: relative;
   z-index: 10;
-  left: 48.7%;
-  top: 40px;
-  color: white;
+  fill: whitesmoke;
+  display:flex;
+  justify-content: center;
+  margin:auto;
+
+  top: -70px;
+  
+}
+
+.sample {
+  position: relative;
+  z-index: 10;
+  fill: white;
+  display:flex;
+  justify-content: center;
+  margin:auto;
+  top: -65px;
+}
+
+.play {
+  width: 35px;
+  position: relative;
+  z-index: 10;
+  fill: whitesmoke;
+  display:flex;
+  justify-content: center;
+  margin:auto;
+  top: -70px;
 }
 
 .wavectn {
@@ -183,3 +208,9 @@ body {
     transform: rotate(360deg);
   }
 }
+
+body {
+  overflow:auto;
+  margin-bottom: 50px;
+}
+

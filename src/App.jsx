@@ -86,7 +86,9 @@ function App({param}) {
                </div>
 
           </div>
+          <div className="is-desktop">
           <Video isPlaying={isPlaying} setIsPlaying={setIsPlaying}/>
+          </div>
           </div>
          
         </div>

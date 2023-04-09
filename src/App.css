@@ -35,6 +35,12 @@ html {
 .icon:hover {
   fill:grey;
 }
+
+@media (max-width: 400px) {
+  .is-desktop {
+    display: none;
+  }
+}
 .icnsmall {
   max-width: 20px;
   margin-bottom: 3.5px;

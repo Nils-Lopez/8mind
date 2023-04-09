@@ -1,12 +1,89 @@
 .App {
   text-align: center;
-  background-image: url("./cover-ghost-raise-final.jpg");
-  min-height: 100%;
-  ;
+  
+  height: 100%;
 }
 
+ @import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+
 html {
+  position: relative;
   height: 100%;
+  background-image: url("ghost.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position:center;
+  background-attachment: fixed;
+  overflow: hidden;
+  font-family: "Share Tech", sans-serif;
+}
+
+.wavectn {
+  top: 0;
+  display: flex;  
+  flex-direction: row;  
+  align-items: center;
+  justify-content: center;
+  height: 0px; 
+   width: 100%;
+  background: transparent;
+  width: 80%;
+  right: 10%;
+  padding: 5px;
+  position: absolute;
+
+}
+
+
+ 
+
+
+.wave {
+  width: 100%;
+  
+  
+}
+
+.cover {
+  border-radius: 3.5%;
+  width: 80%;
+  z-index: -1;
+  position: relative;
+  top: 15px;
+}
+
+.songname {
+  font-family: "Share Tech", sans-serif;
+  position: relative;
+  color: white;
+
+}
+
+.btn-links {
+  width: 100%;
+}
+
+.octo7 {
+  margin-top: -20px;
+  font-family: "Share Tech", sans-serif;
+  color: white;
+
+
+}
+
+.btn-links {
+  border: 2.4px solid white;
+  background-color: transparent;
+  color: white;
+  font-family: "Share Tech", sans-serif;
+  font-size: 18px;
+  box-shadow: 25px black;
+}
+
+.links {
+  width: 80%;
+  justify-content: center;
+  margin: auto;
 }
 
 body {
@@ -19,6 +96,15 @@ body {
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.sep-artist-song {
+  width: 10%;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  height: 1px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
